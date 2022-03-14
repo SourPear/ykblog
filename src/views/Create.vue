@@ -9,6 +9,7 @@
             placeholder="写个标题吧"
             :size="size"
             allow-clear
+            v-model="title"
           />
         </div>
         <div class="create-operate-bg-publish">
@@ -26,6 +27,7 @@ import { defineComponent } from "vue";
 import Editor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import Logo from "../components/Header/Logo.vue";
+import axios from "axios"
 
 export default defineComponent({
   name: "VueTemplateDemo",
@@ -33,8 +35,14 @@ export default defineComponent({
   data() {
     return {
       text: "# 开始创作吧",
+      title: ""
     };
   },
+  methods: {
+    saveArticle() {
+      let a = axios.post()
+    }
+  }
 });
 </script>
 <style lang="less" scoped>
