@@ -29,7 +29,7 @@
             fill="currentColor"
           />
         </svg>
-        <span class="blog-btns-space">{{ blogitem.author }}</span>
+        <span class="blog-btns-space">{{ blogitem.user }}</span>
       </a-button>
       <a-button class="blog-btns-like" type="text">
         <icon-thumb-up size="16" fill="rgb(var(--primary-5)" />
@@ -47,7 +47,7 @@
         <icon-star size="16" />
         <span class="blog-btns-space">收藏</span>
       </a-button>
-      <span class="blog-btns-vies">浏览量 {{ blogitem.vies }}</span>
+      <span class="blog-btns-vies">浏览量 {{ blogitem.view }}</span>
     </div>
   </div>
 </template>

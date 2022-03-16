@@ -34,102 +34,20 @@ import Authoritem from "../components/content/Authoritem.vue";
 import Blogitem from "../components/content/Blogitem.vue";
 import Label from "../components/content/Label.vue";
 import Card from "../components/content/Card.vue";
+import axios from 'axios';
 
 export default {
   name: "Home",
+  created() {
+    axios.post('https://qcb559.api.cloudendpoint.cn/getBlogList').then(res => {
+      this.bloglist = res.data
+      this.blogLoading = false
+    })
+  },
   data() {
     return {
-      bloglist: [
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-        {
-          author: "布丁豆角",
-          title: "Vue为何弃用经典的Ajax，选择新技术Axios？",
-          content:
-            "发送网络请求的方式有很多，下面来简单介绍一下：1、传统的Ajax是基于XMLHttpRequest（XHR）2、jQuery - Ajax为什么不适用jQuery的Ajax？在vue开发中不需要使用jQuery，因为jQuery很重量级3、vue官方在Vue1.x的时候，推出了Vue-resource。Vue-resource角jQuery轻便很多，但在vue2.x之后，尤雨溪对Vue-resource不维护了，简言之，就是弃用了。4、尤雨溪推荐使用axios。",
-          sign: "正在努力写自己的博客网站的靓仔",
-          like: 99,
-          comment: 123,
-          vies: 99,
-        },
-      ],
+      bloglist: [],
+      blogLoading : true,
       authorlist: [
         {
           author: "布丁豆角",

@@ -7,18 +7,17 @@
           <a-input
             style="width: 100%; height: 32px; margin-left: 16px"
             placeholder="写个标题吧"
-            :size="size"
             allow-clear
             v-model="title"
           />
         </div>
         <div class="create-operate-bg-publish">
-          <a-button type="outline">保存</a-button>
+          <a-button type="outline" @click="saveArticle">保存</a-button>
           <a-button type="primary">发布</a-button>
         </div>
       </div>
     </div>
-    <editor class="create-editor" v-model="text"> </editor>
+    <editor class="create-editor" v-model="content"> </editor>
   </div>
 </template>
 
@@ -27,22 +26,30 @@ import { defineComponent } from "vue";
 import Editor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import Logo from "../components/Header/Logo.vue";
-import axios from "axios"
+import axios from "axios";
 
 export default defineComponent({
   name: "VueTemplateDemo",
   components: { Editor, Logo },
   data() {
     return {
-      text: "# 开始创作吧",
-      title: ""
+      content: "# 开始创作吧",
+      title: "",
     };
   },
   methods: {
     saveArticle() {
-      let a = axios.post()
+      console.log(123);
+      axios.post("https://qcb559.api.cloudendpoint.cn/createBlog", {
+        title : this.title,
+        content : this.content,
+        like : 0,
+        comment : 0,
+        view : 0,
+        user : "布丁豆角"
+      })
     }
-  }
+  },
 });
 </script>
 <style lang="less" scoped>
