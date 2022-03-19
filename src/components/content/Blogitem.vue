@@ -109,10 +109,6 @@ export default {
     &-space {
       margin-left: 4px;
     }
-    // &-like {
-    //   margin-left: 28px;
-    //   color: rgb(var(--primary-5)) !important;
-    // }
   }
 }
 .arco-btn-text {

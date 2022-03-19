@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Main from "../views/Main.vue"
 import Login from "../views/Login.vue"
 import Create from "../views/Create.vue"
+import UnLogIn from "../views/UnLogIn.vue"
 
 const routes = [{
         path: "/",
@@ -23,6 +24,15 @@ const routes = [{
         path: "/create",
         name: "Create",
         component: Create,
+    },
+    {
+        path: "/unLogIn",
+        name: "UnLogIn",
+        component: UnLogIn,
+        children: [{
+            path: "/unLogIn",
+            component: Home,
+        }]
     }
 
 ];

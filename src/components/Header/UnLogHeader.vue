@@ -1,48 +1,30 @@
 <template>
   <div class="header mda">
     <div class="nav-left">
-      <Logo style="minwidth: 36px; padding-right: 10px" />
-
       <router-link to="/unLogIn">
-        <IconWithText>
-          <icon-home :size="16" />
-          <span style="margin: 2px">首页</span>
-        </IconWithText>
+        <Logo style="min-width: 32px; padding: 3px 10px 0 0" />
       </router-link>
+
+      <IconWithText>
+        <icon-home :size="16" />
+        <span style="margin: 2px">首页</span>
+      </IconWithText>
+
       <IconWithText style="padding: 0">
         <icon-bulb :size="16" />
         <span style="margin: 2px">问答</span>
       </IconWithText>
     </div>
     <a-input-search class="input" placeholder="请输入搜索内容" />
-    <div class="nav-right">
-      <router-link to="/create">
-        <a-button type="primary" size="large" style="margin-left: 8px">
-          我要创作
-        </a-button>
-      </router-link>
-      <IconWithText @click="changeColor">
+    <div class="nav-right1">
+      <a-button type="primary" style="height: 36px" @click="logIn">
+        登录/注册
+      </a-button>
+      <IconWithText @click="changeColor" style="margin-left: 28px">
         <icon-sun v-if="this.theme === '明色'" :size="16" />
         <icon-moon v-if="this.theme === '暗色'" :size="16" />
         <span>{{ theme }}</span>
       </IconWithText>
-      <IconWithText>
-        <icon-history :size="17" />
-        <span>历史</span>
-      </IconWithText>
-      <IconWithText>
-        <icon-star :size="17" />
-        <span>收藏</span>
-      </IconWithText>
-      <IconWithText>
-        <icon-notification :size="17" />
-        <span>消息</span>
-      </IconWithText>
-      <router-link to="/Login">
-        <a-avatar :size="32" class="avatar">
-          <img src="../../assets/Avatar.png" />
-        </a-avatar>
-      </router-link>
     </div>
   </div>
   <div class="header mda-i">
@@ -50,7 +32,7 @@
       <img src="../../assets/Avatar.png" />
     </a-avatar>
     <a-input-search class="input" placeholder="请输入搜索内容" />
-    <a-button style="width: 36px" type="text">
+    <a-button style="width: 36px" type="text" @click="login">
       <template #icon>
         <icon-menu-fold :size="24" />
       </template>
@@ -59,15 +41,16 @@
 </template>
 
 <script>
-import IconWithText from "./IconWithText.vue";
 import Logo from "../Logo.vue";
+import IconWithText from "./IconWithText.vue";
 
 export default {
-  name: "Header",
+  name: "UnLogHeader",
   components: {
     Logo,
     IconWithText,
   },
+  props: ["logIn"],
   data() {
     return {
       theme: "明色",
@@ -83,11 +66,14 @@ export default {
         this.theme = "暗色";
       }
     },
+    login() {
+      this.logIn();
+    },
   },
 };
 </script>
 
-<style lang="less">
+<style lang="less" >
 @import "../../utils/media.less";
 .header {
   color: var(--color-text-1);
@@ -107,8 +93,8 @@ export default {
     justify-content: space-between;
     width: 165px;
   }
-  .nav-right {
-    width: 432px;
+  .nav-right1 {
+    width: 200px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;

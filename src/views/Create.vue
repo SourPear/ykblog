@@ -25,7 +25,7 @@
 import { defineComponent } from "vue";
 import Editor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
-import Logo from "../components/Header/Logo.vue";
+import Logo from "../components/Logo.vue";
 import axios from "axios";
 
 export default defineComponent({
@@ -39,7 +39,6 @@ export default defineComponent({
   },
   methods: {
     saveArticle() {
-      console.log(123);
       axios.post("https://qcb559.api.cloudendpoint.cn/createBlog", {
         title : this.title,
         content : this.content,
