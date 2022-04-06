@@ -13,7 +13,7 @@
 <script>
 import Label from "./Label.vue";
 import Blogleft from "./Blogleft/Blogleft.vue";
-import Blogright from "./Blogright/Blogright.vue"
+import Blogright from "./Blogright/Blogright.vue";
 export default {
   name: "Content",
   components: {
@@ -34,5 +34,6 @@ export default {
 }
 .Blogleft {
   height: 300vh;
+  min-height: 90vh;
 }
 </style>

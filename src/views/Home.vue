@@ -3,7 +3,7 @@
     <Label class="mda" />
     <a-row :gutter="16" class="home-blog-row">
       <a-col :md="18" :sm="24" :xs="24" :lg="18">
-        <Card headline="博客列表" :hasHeader="true">
+        <Card headline="博客列表" :hasHeader="true" style="min-height: 75vh">
           <Blogitem
             v-for="blogitem in bloglist"
             :key="blogitem"
@@ -29,25 +29,27 @@
 </template>
 
 <script>
-import Answeritem from "../components/content/Answeritem.vue";
-import Authoritem from "../components/content/Authoritem.vue";
-import Blogitem from "../components/content/Blogitem.vue";
-import Label from "../components/content/Label.vue";
-import Card from "../components/content/Card.vue";
-import axios from 'axios';
+import Answeritem from "../components/Content/Answeritem.vue";
+import Authoritem from "../components/Content/Authoritem.vue";
+import Blogitem from "../components/Content/Blogitem.vue";
+import Label from "../components/Content/Label.vue";
+import Card from "../components/Content/Card.vue";
+import axios from "axios";
 
 export default {
   name: "Home",
   created() {
-    axios.post('https://qcb559.api.cloudendpoint.cn/getBlogList').then(res => {
-      this.bloglist = res.data
-      this.blogLoading = false
-    })
+    axios
+      .post("https://qcb559.api.cloudendpoint.cn/getBlogList")
+      .then((res) => {
+        this.bloglist = res.data;
+        this.blogLoading = false;
+      });
   },
   data() {
     return {
       bloglist: [],
-      blogLoading : true,
+      blogLoading: true,
       authorlist: [
         {
           author: "布丁豆角",
@@ -104,7 +106,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import "../utils/media.less";
 .home {
   display: flex;
@@ -112,9 +114,10 @@ export default {
   align-items: center;
   &-blog-row {
     width: 100vw;
-    max-width: 1484px;
+    max-width: 1488px;
     padding: 0 16px;
     box-sizing: border-box;
+    min-height: 90vh;
   }
 }
 </style>

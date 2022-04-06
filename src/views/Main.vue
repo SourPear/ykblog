@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" >
 * {
   transition: 340ms background-color;
 }

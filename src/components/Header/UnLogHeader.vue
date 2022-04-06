@@ -17,9 +17,11 @@
     </div>
     <a-input-search class="input" placeholder="请输入搜索内容" />
     <div class="nav-right1">
-      <a-button type="primary" style="height: 36px" @click="logIn">
-        登录/注册
-      </a-button>
+      <router-link to="/login">
+        <a-button type="primary" style="height: 36px" @click="logIn">
+          登录/注册
+        </a-button>
+      </router-link>
       <IconWithText @click="changeColor" style="margin-left: 28px">
         <icon-sun v-if="this.theme === '明色'" :size="16" />
         <icon-moon v-if="this.theme === '暗色'" :size="16" />
