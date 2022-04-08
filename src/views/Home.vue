@@ -3,7 +3,7 @@
     <Label class="mda" />
     <a-row :gutter="16" class="home-blog-row">
       <a-col :md="18" :sm="24" :xs="24" :lg="18">
-        <Card headline="博客列表" :hasHeader="true" style="min-height: 75vh">
+        <Card headline="博客列表" :hasHeader="true" style="min-height: 76vh">
           <Blogitem
             v-for="blogitem in bloglist"
             :key="blogitem"
@@ -114,8 +114,8 @@ export default {
   align-items: center;
   &-blog-row {
     width: 100vw;
-    max-width: 1488px;
-    padding: 0 16px;
+    max-width: 1472px;
+    padding: 0 8px;
     box-sizing: border-box;
     min-height: 90vh;
   }

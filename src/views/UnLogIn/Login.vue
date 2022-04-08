@@ -17,32 +17,30 @@
         <p style="width: 100%; text-align: center">Process</p>
       </div>
       <div class="login-bottom-right">
-        <div class="login-bottom-right-content" v-show="false">
-          <div class="login-bottom-right-content-title">手机号登录</div>
-          <PhoneForm style="margin-top: 32px" />
-        </div>
-        <div class="login-bottom-right-content" v-show="true">
-          <div class="login-bottom-right-content-title">账号密码登陆</div>
-          <Form style="margin-top: 32px" />
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from "../components/Logo.vue";
-import PhoneForm from "../components/Form/PhoneLogin.vue";
+import Logo from "../../components/Logo.vue";
+
 export default {
   components: {
     Logo,
-    PhoneForm,
+  },
+  data() {
+    return {
+      log: "/login",
+      reg: "/register",
+    };
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import "../utils/media.less";
+@import "../../utils/media.less";
 .login {
   display: flex;
   flex-direction: column;
@@ -100,9 +98,10 @@ export default {
       color: var(--color-bg-2);
       font-size: 24px;
       font-weight: 900;
-      padding-bottom: 48px;
+      padding-bottom: 72px;
       box-sizing: border-box;
       box-shadow: 0px 4px 24px -8px rgba(var(--gray-10), 0.2);
+      margin-bottom: 48px;
     }
     &-right {
       width: 410px;
@@ -111,19 +110,13 @@ export default {
       background-color: var(--color-bg-2);
       border-bottom-right-radius: 6px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       box-shadow: 0px 4px 24px -8px rgba(var(--gray-10), 0.2);
-      &-content {
-        height: 400px;
-        width: 240px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        &-title {
-          font-size: 20px;
-        }
-      }
+      padding-bottom: 4px;
+      margin-bottom: 48px;
+      box-sizing: border-box;
     }
     @media screen and (max-width: 768px) {
       &-card {

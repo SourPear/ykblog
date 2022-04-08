@@ -1,9 +1,7 @@
 <template>
   <div class="header mda">
     <div class="nav-left">
-      <router-link to="/unLogIn">
-        <Logo style="min-width: 32px; padding: 3px 10px 0 0" />
-      </router-link>
+      <Logo style="min-width: 32px; padding: 3px 10px 0 0" />
 
       <IconWithText>
         <icon-home :size="16" />
@@ -84,7 +82,7 @@ export default {
   height: 56px;
   display: flex;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 16px;
   box-sizing: content-box;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;

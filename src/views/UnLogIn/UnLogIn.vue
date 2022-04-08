@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import UnLogHeader from "../components/Header/UnLogHeader.vue";
+import UnLogHeader from "../../components/Header/UnLogHeader.vue";
 export default {
   components: {
     UnLogHeader,

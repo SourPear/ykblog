@@ -3,14 +3,14 @@
     <a-form :model="form" :layout="layout">
       <a-form-item field="name" label="手机号码">
         <a-input
-          v-model="form.name"
+          v-model="form.phone"
           placeholder="请输入正确的手机号"
           style="height: 36px"
         />
       </a-form-item>
       <a-form-item field="post" label="验证码">
         <a-input
-          v-model="form.post"
+          v-model="form.verificationCode"
           placeholder="4位验证码"
           style="height: 36px"
         />
@@ -28,23 +28,16 @@
           登录
         </a-button>
       </a-form-item>
-      <div style="width: 240px; display: flex; justify-content: center">
-        <div class="otherLogin">
-          <div
-            style="
-              color: var(--color-text-3);
-              font-weight: 900;
-              margin-top: 4px;
-            "
-          >
-            更多登录方式
-          </div>
-          <div class="otherLogin-logo">
-            <icon-github size="17" />
-            <icon-wechat size="18" />
-            <icon-lock size="18" />
-          </div>
-        </div>
+      <div
+        style="
+          text-align: center;
+          margin: -16px 0px 8px;
+          font-size: 12px;
+          color: var(--color-text-3);
+          user-select: none;
+        "
+      >
+        未注册的手机号将自动注册
       </div>
     </a-form>
   </a-space>
@@ -56,36 +49,18 @@ import { reactive, ref } from "vue";
 export default {
   setup() {
     const layout = ref("vertical");
-    const form = reactive({});
+    const form = reactive({
+      phone: "",
+      verificationCode: "",
+    });
 
     return {
       layout,
       form,
     };
   },
+  props: ["change"],
 };
 </script>
 <style lang="less" scoped>
-.otherLogin {
-  width: 184px;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid rgb(var(--gray-3));
-  padding-top: 8px;
-  margin-top: 8px;
-  justify-content: center;
-  align-items: center;
-  &-logo {
-    color: rgb(var(--gray-9));
-    margin-top: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 160px;
-  }
-  &-logo :hover {
-    color: rgb(var(--primary-6));
-    cursor: pointer;
-  }
-}
 </style>

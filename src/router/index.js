@@ -1,13 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 //import Component from '../components/content/content.vue'
 import Home from '../views/Home.vue'
-import Login from "../views/Login.vue"
+import Login from "../views/UnLogIn/Login.vue"
 import Create from "../views/Create.vue"
-import UnLogIn from "../views/UnLogIn.vue"
+import UnLogIn from "../views/UnLogIn/UnLogIn.vue"
+import LoginType from "../components/Login/LoginType.vue"
+import Register from "../components/Login/Register.vue"
 
 const routes = [{
     path: "/",
-    name: "UnlogIn",
+    name: "unlogin",
     component: UnLogIn,
     children: [{
         path: "/",
@@ -18,22 +20,33 @@ const routes = [{
     path: "/login",
     name: "Login",
     component: Login,
+    children: [
+        {
+            path: "/login",
+            name: "logintype",
+            component: LoginType,
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: Register,
+        }
+    ]
 },
 {
     path: "/create",
-    name: "Create",
+    name: "create",
     component: Create,
 },
 {
-    path: "/unLogIn",
-    name: "UnLogIn",
+    path: "/unlogin",
+    name: "Unlogin",
     component: UnLogIn,
     children: [{
-        path: "/unLogIn",
+        path: "/unlogin",
         component: Home,
     }]
-}
-
+},
 ];
 
 const router = createRouter({

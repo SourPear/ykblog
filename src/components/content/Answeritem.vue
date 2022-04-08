@@ -7,6 +7,7 @@
         viewBox="0 0 28 28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style="margin-right: 20px"
       >
         <circle
           cx="14"
@@ -48,7 +49,7 @@ export default {
     font-size: 1px;
     position: absolute;
     top: 14px;
-    left: 8px;
+    left: 7px;
   }
   &-title {
     position: absolute;

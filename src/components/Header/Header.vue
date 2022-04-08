@@ -96,7 +96,7 @@ export default {
   height: 56px;
   display: flex;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 16px;
   box-sizing: content-box;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
