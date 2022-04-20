@@ -1,7 +1,9 @@
 <template>
   <div class="header mda">
     <div class="nav-left">
-      <Logo style="min-width: 32px; padding: 3px 10px 0 0" />
+      <router-link to="/main"
+        ><Logo style="min-width: 32px; padding: 3px 10px 0 0"
+      /></router-link>
 
       <IconWithText>
         <icon-home :size="16" />
@@ -16,9 +18,7 @@
     <a-input-search class="input" placeholder="请输入搜索内容" />
     <div class="nav-right1">
       <router-link to="/login">
-        <a-button type="primary" style="height: 36px" @click="logIn">
-          登录/注册
-        </a-button>
+        <a-button type="primary" style="height: 36px"> 登录/注册 </a-button>
       </router-link>
       <IconWithText @click="changeColor" style="margin-left: 28px">
         <icon-sun v-if="this.theme === '明色'" :size="16" />
@@ -32,7 +32,7 @@
       <img src="../../assets/Avatar.png" />
     </a-avatar>
     <a-input-search class="input" placeholder="请输入搜索内容" />
-    <a-button style="width: 36px" type="text" @click="login">
+    <a-button style="width: 36px" type="text">
       <template #icon>
         <icon-menu-fold :size="24" />
       </template>
@@ -50,24 +50,27 @@ export default {
     Logo,
     IconWithText,
   },
-  props: ["logIn"],
   data() {
     return {
       theme: "明色",
     };
   },
+  created() {
+    document.body.setAttribute("arco-theme", localStorage.getItem("theme"));
+    if (localStorage.getItem("theme") != "dark") this.theme = "明色";
+    else this.theme = "暗色";
+  },
   methods: {
     changeColor() {
       if (document.body.getAttribute("arco-theme") === "dark") {
         document.body.setAttribute("arco-theme", "light");
+        localStorage.setItem("theme", "light");
         this.theme = "明色";
       } else {
         document.body.setAttribute("arco-theme", "dark");
+        localStorage.setItem("theme", "dark");
         this.theme = "暗色";
       }
-    },
-    login() {
-      this.logIn();
     },
   },
 };
@@ -83,7 +86,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 0 16px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   justify-content: space-between;

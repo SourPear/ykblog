@@ -3,12 +3,13 @@
     <Label class="mda" />
     <a-row :gutter="16" class="home-blog-row">
       <a-col :md="18" :sm="24" :xs="24" :lg="18">
-        <Card headline="博客列表" :hasHeader="true" style="min-height: 76vh">
+        <Card headline="博客列表" :hasHeader="true" style="min-height: 75vh">
           <Blogitem
             v-for="blogitem in bloglist"
             :key="blogitem"
             :blogitem="blogitem"
           />
+          <div class="loading" v-if="blogLoading"><icon-loading />加载中</div>
         </Card>
       </a-col>
       <a-col :md="6" :sm="24" :xs="24" :lg="6">
@@ -34,17 +35,14 @@ import Authoritem from "../components/Content/Authoritem.vue";
 import Blogitem from "../components/Content/Blogitem.vue";
 import Label from "../components/Content/Label.vue";
 import Card from "../components/Content/Card.vue";
-import axios from "axios";
 
 export default {
   name: "Home",
   created() {
-    axios
-      .post("https://qcb559.api.cloudendpoint.cn/getBlogList")
-      .then((res) => {
-        this.bloglist = res.data;
-        this.blogLoading = false;
-      });
+    this.$fetch.getBlogList().then((res) => {
+      this.bloglist = res.data;
+      this.blogLoading = false;
+    });
   },
   data() {
     return {
@@ -114,10 +112,17 @@ export default {
   align-items: center;
   &-blog-row {
     width: 100vw;
-    max-width: 1472px;
+    max-width: 1440px;
     padding: 0 8px;
     box-sizing: border-box;
     min-height: 90vh;
   }
+}
+.loading {
+  width: 100%;
+  height: 56vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

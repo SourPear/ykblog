@@ -1,10 +1,10 @@
 <template>
   <div class="content" v-show="this.loginType">
-    <div style="font-size: 20px">手机号登录</div>
+    <div style="font-size: 20px; color: var(--color-text-2)">手机号登录</div>
     <PhoneForm style="margin-top: 32px" :change="password" />
   </div>
   <div class="content" v-show="!this.loginType">
-    <div style="font-size: 20px">账号密码登陆</div>
+    <div style="font-size: 20px; color: var(--color-text-2)">账号密码登陆</div>
     <PasswordForm style="margin-top: 32px" />
   </div>
 
@@ -16,10 +16,19 @@
         更多登录方式
       </div>
       <div class="otherLogin-logo">
-        <icon-github size="17" />
-        <icon-wechat size="18" />
-        <icon-lock v-show="loginType" size="18" @click="password" />
-        <icon-mobile v-show="!loginType" size="18" @click="password" />
+        <a-popover>
+          <icon-github size="17" />
+          <template #content>Github</template>
+        </a-popover>
+        <a-popover>
+          <icon-wechat size="18" />
+          <template #content>微信登陆</template>
+        </a-popover>
+        <a-popover>
+          <icon-lock v-if="loginType" size="18" @click="password" />
+          <icon-mobile v-if="!loginType" size="18" @click="password" />
+          <template #content>{{ loginword }}</template>
+        </a-popover>
       </div>
     </div>
   </div>
@@ -36,11 +45,15 @@ export default {
   data() {
     return {
       loginType: 1,
+      loginword: "账号密码",
     };
   },
   methods: {
     password() {
       this.loginType = !this.loginType;
+      if (!this.loginType) {
+        this.loginword = "手机号登陆";
+      } else this.loginword = "账号密码";
     },
   },
 };

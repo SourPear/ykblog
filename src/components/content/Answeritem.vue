@@ -7,7 +7,6 @@
         viewBox="0 0 28 28"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style="margin-right: 20px"
       >
         <circle
           cx="14"
@@ -38,23 +37,36 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.answer-like {
-  margin: 16px 16px 0 16px;
-  padding-bottom: 8px;
-  box-sizing: border-box;
+.answer {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px solid var(--color-border);
   transition: 340ms border-bottom;
+}
+.answer:hover {
+  background-color: rgb(var(--gray-1));
+}
+.answer-like {
   position: relative;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  margin-top: 4px;
+  cursor: pointer;
   &-nums {
     font-size: 1px;
     position: absolute;
     top: 14px;
-    left: 7px;
+    left: 23px;
   }
   &-title {
     position: absolute;
     top: 8px;
-    left: 40px;
+    left: 56px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

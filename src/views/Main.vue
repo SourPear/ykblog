@@ -37,7 +37,7 @@ body {
   position: fixed;
   background-color: var(--color-bg-4);
   transition: 340ms background-color;
-  box-shadow: 0px 4px 36px -8px rgba(var(--gray-10), 0.08);
+  box-shadow: 0px 4px 36px -8px rgba(black, 0.08);
   width: 100vw;
   display: flex;
   justify-content: center;

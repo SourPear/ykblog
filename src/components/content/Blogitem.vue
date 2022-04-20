@@ -31,7 +31,7 @@
         </svg>
         <span class="blog-btns-space">{{ blogitem.user }}</span>
       </a-button>
-      <a-button class="blog-btns-like" type="text">
+      <a-button class="blog-btns-like" type="text" @click="like">
         <icon-thumb-up size="16" fill="rgb(var(--primary-5)" />
         <span class="blog-btns-space">{{ blogitem.like + "赞" }}</span>
       </a-button>
@@ -56,6 +56,9 @@
 export default {
   props: ["blogitem"],
   name: "Blogitem",
+  methods: {
+    like() {},
+  },
 };
 </script>
 
@@ -64,8 +67,8 @@ export default {
 .blog {
   width: 100%;
   height: 160px;
-  box-shadow: 0px 1px 0px var(--color-border);
-  transition: 340ms box-shadow;
+  border-bottom: 1px solid var(--color-border);
+  transition: 340ms border;
   position: relative;
   &-title {
     padding: 20px 16px 16px;
@@ -79,6 +82,7 @@ export default {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     max-height: 1px;
+    cursor: pointer;
   }
   &-article {
     line-height: 24px;
@@ -90,6 +94,7 @@ export default {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    cursor: pointer;
   }
   &-btns {
     padding: 0 0 0 12px;
@@ -110,6 +115,9 @@ export default {
       margin-left: 4px;
     }
   }
+}
+.blog:hover {
+  background-color: rgb(var(--gray-1));
 }
 .arco-btn-text {
   color: var(--color-text-2) !important;

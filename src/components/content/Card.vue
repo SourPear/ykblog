@@ -1,25 +1,22 @@
 <template>
   <div class="blog-card">
-    <Select v-if="hasHeader"/>
+    <Select v-if="hasHeader" />
     <div v-if="!hasHeader" class="blog-card-header">
       <span class="blog-card-header-title" :heading="5">{{ headline }}</span>
     </div>
-    <slot/>
-    <!-- <Blog/>
-    <Blog/> -->
+    <slot />
   </div>
 </template>
 
 <script>
-import Select from "./Select.vue"
-// import Blog from "./content/Blogleft/Blog.vue"
+import Select from "./Select.vue";
 export default {
-  components:{
-    Select
+  components: {
+    Select,
   },
   props: {
-    bloglist:{
-      default:[]
+    bloglist: {
+      default: [],
     },
     headline: {
       default: "headline",

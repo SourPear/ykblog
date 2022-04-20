@@ -33,8 +33,8 @@ export default {
   align-items: center;
   width: 100%;
   height: 52px;
-  box-shadow: 0px 1px 0px var(--color-border);
-  transition: 340ms box-shadow;
+  border-bottom: 1px solid var(--color-border);
+  transition: 340ms border;
   &-focus {
     border-bottom: 3px solid rgb(var(--primary-5));
     height: 50px;
@@ -44,8 +44,7 @@ export default {
     width: 32px;
   }
   .arco-btn-size-medium {
-  font-size: 16px !important;
+    font-size: 16px !important;
+  }
 }
-}
-
 </style>

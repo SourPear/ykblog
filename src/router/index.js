@@ -6,6 +6,7 @@ import Create from "../views/Create.vue"
 import UnLogIn from "../views/UnLogIn/UnLogIn.vue"
 import LoginType from "../components/Login/LoginType.vue"
 import Register from "../components/Login/Register.vue"
+import Main from "../views/Main.vue"
 
 const routes = [{
     path: "/",
@@ -47,6 +48,15 @@ const routes = [{
         component: Home,
     }]
 },
+{
+    path: '/main',
+    name: 'main',
+    component: Main,
+    children: [{
+        path: "/main",
+        component: Home,
+    }]
+}
 ];
 
 const router = createRouter({

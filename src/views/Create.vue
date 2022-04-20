@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <editor class="create-editor" v-model="content"> </editor>
+    <editor class="create-editor" v-model="content" :theme="theme"> </editor>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ import { defineComponent } from "vue";
 import Editor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import Logo from "../components/Logo.vue";
-import axios from "axios";
+// import axios from "axios";
 
 export default defineComponent({
   name: "VueTemplateDemo",
@@ -35,19 +35,24 @@ export default defineComponent({
     return {
       content: "# 开始创作吧",
       title: "",
+      theme: "",
     };
+  },
+  created() {
+    document.body.setAttribute("arco-theme", localStorage.getItem("theme"));
+    this.theme = document.body.getAttribute("arco-theme");
   },
   methods: {
     saveArticle() {
-      axios.post("https://qcb559.api.cloudendpoint.cn/createBlog", {
-        title : this.title,
-        content : this.content,
-        like : 0,
-        comment : 0,
-        view : 0,
-        user : "布丁豆角"
-      })
-    }
+      this.$fetch.createBlog({
+        title: this.title,
+        content: this.content,
+        like: 0,
+        comment: 0,
+        view: 0,
+        user: "布丁豆角",
+      });
+    },
   },
 });
 </script>
@@ -55,19 +60,22 @@ export default defineComponent({
 .create {
   display: flex;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-1);
   &-editor {
-    box-shadow: 0px 4px 36px -8px rgba(var(--gray-10), 0.08);
-    margin-top: 72px;
-    height: 100%;
+    box-shadow: 0px 4px 36px -8px rgba(black, 0.08);
     width: 100vw;
     height: 88vh;
     max-width: 1440px;
-    margin: 72px 16px 0;
+    margin: 72px 26px 0;
     background-color: var(--color-bg-2);
     border-radius: 6px;
+    color: var(--color-text-2);
+    box-sizing: border-box;
   }
   &-operate {
-    box-shadow: 0px 4px 36px -8px rgba(var(--gray-10), 0.04);
+    box-shadow: 0px 4px 36px -8px rgba(black, 0.04);
     position: fixed;
     z-index: 1000;
     width: 100vw;
@@ -83,7 +91,7 @@ export default defineComponent({
       width: 100vw;
       padding: 0 16px;
       box-sizing: border-box;
-      max-width: 1472px;
+      max-width: 1440px;
       &-left {
         display: flex;
         align-items: center;

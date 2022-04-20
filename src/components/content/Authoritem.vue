@@ -51,6 +51,9 @@ export default {
     }
   }
 }
+.author-item:hover {
+  background-color: rgb(var(--gray-1));
+}
 .arco-btn-size-medium {
   display: flex;
   justify-content: center;

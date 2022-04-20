@@ -73,13 +73,20 @@ export default {
       theme: "明色",
     };
   },
+  created() {
+    document.body.setAttribute("arco-theme", localStorage.getItem("theme"));
+    if (localStorage.getItem("theme") != "dark") this.theme = "明色";
+    else this.theme = "暗色";
+  },
   methods: {
     changeColor() {
       if (document.body.getAttribute("arco-theme") === "dark") {
         document.body.setAttribute("arco-theme", "light");
+        localStorage.setItem("theme", "light");
         this.theme = "明色";
       } else {
         document.body.setAttribute("arco-theme", "dark");
+        localStorage.setItem("theme", "dark");
         this.theme = "暗色";
       }
     },
@@ -96,8 +103,7 @@ export default {
   height: 56px;
   display: flex;
   align-items: center;
-  padding: 0 16px;
-  box-sizing: content-box;
+  box-sizing: border-box;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   justify-content: space-between;

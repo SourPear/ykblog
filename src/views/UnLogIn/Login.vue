@@ -13,8 +13,8 @@
     </div>
     <div class="login-bottom">
       <div class="login-bottom-card">
-        <p style="width: 100%; text-align: center">Enjoy</p>
-        <p style="width: 100%; text-align: center">Process</p>
+        <p style="width: 100%; text-align: center; color: #fff">Enjoy</p>
+        <p style="width: 100%; text-align: center; color: #fff">Process</p>
       </div>
       <div class="login-bottom-right">
         <router-view></router-view>
@@ -35,6 +35,10 @@ export default {
       log: "/login",
       reg: "/register",
     };
+  },
+  created() {
+    document.body.setAttribute("arco-theme", localStorage.getItem("theme"));
+    this.theme = document.body.getAttribute("arco-theme");
   },
 };
 </script>
@@ -59,8 +63,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       width: 100vw;
-      max-width: 1472px;
-      margin-right: 16px;
+      max-width: 1440px;
       &-left {
         display: flex;
         justify-content: center;
@@ -100,7 +103,7 @@ export default {
       font-weight: 900;
       padding-bottom: 72px;
       box-sizing: border-box;
-      box-shadow: 0px 4px 24px -8px rgba(var(--gray-10), 0.2);
+      box-shadow: 0px 4px 24px -8px rgba(black, 0.2);
       margin-bottom: 48px;
     }
     &-right {
@@ -113,7 +116,7 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 0px 4px 24px -8px rgba(var(--gray-10), 0.2);
+      box-shadow: 0px 4px 24px -8px rgba(black, 0.2);
       padding-bottom: 4px;
       margin-bottom: 48px;
       box-sizing: border-box;
